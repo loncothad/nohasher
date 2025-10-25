@@ -1,0 +1,13 @@
+allow-dbg-in-tests = true
+
+max-fn-params-bools = 2
+
+allowed-idents-below-min-chars = [ "i", "k", "n", "p", "r", "v", "x", "y", "z" ]
+
+min-ident-chars-threshold = 3
+
+check-private-items = true
+
+[[standard-macro-braces]]
+brace = "["
+name  = "vec"

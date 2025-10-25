@@ -1,0 +1,15 @@
+[package]
+name        = "nohasher"
+description = "No-op hasher"
+version     = "1.0.0"
+edition     = "2024"
+license     = "MIT OR Apache-2.0"
+repository  = "https://github.com/loncothad/nohasher"
+readme      = "README.md"
+authors     = [ "loncothad <me@loncothad.cc>" ]
+categories  = [ "no-std", "rust-patterns" ]
+keywords    = [ "hasher" ]
+
+[features]
+default = [ "std" ]
+std     = [  ]
