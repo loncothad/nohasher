@@ -3,4 +3,4 @@ fmt:
     cargo +nightly fmt
 
 check:
-    cargo +nightly check
+    cargo check

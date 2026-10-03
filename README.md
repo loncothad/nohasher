@@ -2,6 +2,17 @@
 
 No-op hasher for using integer-ish keys in `HashMap`-like structures.
 
+## Rust version
+
+The minimum supported Rust version (MSRV) is **1.100**. Until Rust 1.100.0 is
+released, use the beta toolchain pinned in `rust-toolchain.toml`. After release,
+change its channel from `beta` to `1.100.0`.
+
+Builds, checks, and tests use the pinned toolchain (`cargo check`, `cargo clippy`,
+and `cargo test`). Use `--no-default-features` to check the `no_std` build.
+Formatting still requires nightly (`just fmt`) because `.rustfmt.toml` uses
+unstable formatting options; nightly is not required to build or test the crate.
+
 ### Notes
 
 * For builds with profiles that include `debug_assertions` there are checks enabled that ensure that the hasher is invoked only once but they are disabled otherwise.

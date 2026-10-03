@@ -104,6 +104,24 @@ mod tests {
     }
 
     #[test]
+    #[cfg(debug_assertions)]
+    #[should_panic(expected = "NoHashHasher: `write` called more than once on the same hasher")]
+    fn repeated_writes_panic_in_debug() {
+        let mut hasher = NoHashHasher::<u32>::default();
+        hasher.write_u32(1);
+        hasher.write_u32(2);
+    }
+
+    #[test]
+    #[cfg(not(debug_assertions))]
+    fn repeated_writes_replace_value_in_release() {
+        let mut hasher = NoHashHasher::<u32>::default();
+        hasher.write_u32(1);
+        hasher.write_u32(2);
+        assert_eq!(hasher.finish(), 2);
+    }
+
+    #[test]
     #[cfg(feature = "std")]
     fn nohashmap_works() {
         let mut map = NoHashMap::<u64, &str>::default();
